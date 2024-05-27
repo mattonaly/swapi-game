@@ -94,12 +94,12 @@ export class GameComponent implements OnInit {
         const crewAway = Number.parseInt((b as IStarship).crew);
         if (isNaN(crewHome) || isNaN(crewAway)) {
           const message = `Invalid crew: ${crewHome} ${crewAway}`;
-          this.snackbar.open(message);
+          this.snackbar.open(message, 'Close', { duration: 5000 });
           throw new Error(message);
         }
         if (crewHome === crewAway) {
           const message = `Equal crew: ${crewHome} ${crewAway}`;
-          this.snackbar.open(message);
+          this.snackbar.open(message, 'Close', { duration: 5000 });
           throw new Error(message);
         }
         return crewHome > crewAway ? a : b;
@@ -110,12 +110,12 @@ export class GameComponent implements OnInit {
         const massAway = Number.parseInt((b as IPerson).mass);
         if (isNaN(massHome) || isNaN(massAway)) {
           const message = `Invalid mass: ${massHome} ${massAway}`;
-          this.snackbar.open(message);
+          this.snackbar.open(message, 'Close', { duration: 5000 });
           throw new Error(message);
         }
         if (massHome === massAway) {
           const message = `Equal mass: ${massHome} ${massAway}`;
-          this.snackbar.open(message);
+          this.snackbar.open(message, 'Close', { duration: 5000 });
           throw new Error(message);
         }
         return massHome > massAway ? a : b;
