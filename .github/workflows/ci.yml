@@ -4,16 +4,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install
       - name: Run tests
-        run: npm test
+        run: npm test -- --watch=false --browsers=ChromeHeadless
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: npm install
-      - name: Run e2e tests
-        run: npm run e2e
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
