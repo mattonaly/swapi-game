@@ -47,16 +47,14 @@ export class GameComponent implements OnInit {
   public resources = Object.values(Resource);
   public resource = signal(Resource.PEOPLE);
 
+  public items: WritableSignal<IPerson[] | IStarship[]> = signal([]);
   public winnerIndex = signal<number | null>(null);
-
   public scores = signal<number[]>([0, 0]);
 
   constructor(
     private readonly gameService: GameService,
     private readonly snackbar: MatSnackBar,
   ) {}
-
-  public items: WritableSignal<IPerson[] | IStarship[]> = signal([]);
 
   public ngOnInit(): void {
     this.play();
