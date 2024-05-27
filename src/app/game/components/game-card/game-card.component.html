@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ item?.name }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    @if (item) {
+      @if (isPerson(item)) {
+        <p>Mass: {{ item.mass }}</p>
+        <p>Height: {{ item.height }}</p>
+        <p>Gender: {{ item.gender }}</p>
+        <p>Birth year: {{ item.birth_year }}</p>
+        <p>Skin color: {{ item.skin_color }}</p>
+      }
+      @if (isStarship(item)) {
+        <p>Crew: {{ item.crew }}</p>
+        <p>Model: {{ item.model }}</p>
+        <p>Manufacturer: {{ item.manufacturer }}</p>
+        <p>Passengers: {{ item.passengers }}</p>
+        <p>Starship class: {{ item.starship_class }}</p>
+      }
+    }
+  </mat-card-content>
+</mat-card>

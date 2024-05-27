@@ -1,0 +1,32 @@
+<section class="flex flex-col mb-4">
+  <mat-form-field>
+    <mat-label>Resource</mat-label>
+    <mat-select
+      [ngModel]="resource()"
+      (selectionChange)="resourceChange($event)"
+    >
+      @for (resource of resources; track resource) {
+        <mat-option [value]="resource">{{ resource }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <button mat-button [disabled]="!items().length" (click)="play()">Play</button>
+</section>
+<div class="grid grid-cols-2 gap-4">
+  @for (score of scores(); track score) {
+    <p id="scores" class="text-center">
+      <span class="font-bold mr-1">{{ score }}</span>
+      <span class="text-xs">points</span>
+    </p>
+  }
+  @if (items().length) {
+    @for (item of items(); track $index) {
+      <app-game-card
+        [item]="item"
+        [class.winner]="$index === winnerIndex()"
+      ></app-game-card>
+    }
+  } @else {
+    <p class="p-4">Loading...</p>
+  }
+</div>
